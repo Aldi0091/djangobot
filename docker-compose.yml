@@ -12,6 +12,7 @@ services:
         - postgresnetwork
       command: >
         sh -c "
+              python ./test-django-001/manage.py makemigrations &&
               python ./test-django-001/manage.py migrate &&
               python ./test-django-001/manage.py runserver 0.0.0.0:8000"
 
