@@ -36,8 +36,9 @@ services:
          - postgres
       networks:
          - postgresnetwork
-      command:
-         - python ./telo/src/main.py
+      command: >
+         sh -c "
+               python ./telo/src/main.py"
 networks:
   postgresnetwork:
     driver: bridge
