@@ -36,7 +36,9 @@ class Message(generics.GenericAPIView):
 
         serializer_class = MessageSerializator(data=request.data)
         if serializer_class.is_valid(raise_exception=True):
-            asyncio.run(bot.send_message(chat_id=5306538555, text=f'{request.data.get("message")}'))
+            token = request.data.get('token')
+            telega = User.objects.filter(token=token).values("telegram_id").get()['telegram_id']
+            asyncio.run(bot.send_message(chat_id=telega, text=f'{request.data.get("message")}'))
             return Response(serializer_class.data, status=HTTP_200_OK)
         return Response(serializer_class.errors, status=HTTP_400_BAD_REQUEST)
 

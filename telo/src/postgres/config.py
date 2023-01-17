@@ -1,4 +1,4 @@
-host="localhost"
+host="postgres"
 user="aldo"
-password="s486efs4"
+password="12345678"
 db_name="test_base"

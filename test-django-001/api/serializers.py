@@ -8,9 +8,10 @@ from django.core.exceptions import ValidationError
 
 class MessageSerializator(serializers.ModelSerializer):
     message = serializers.CharField()
+    token = serializers.CharField()
     class Meta:
         model = Message
-        fields = ['message']
+        fields = ['message', 'token']
 
 
 class ReceiverSerializer(serializers.ModelSerializer):

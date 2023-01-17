@@ -3,6 +3,7 @@ from django.db import models
 
 class Message(models.Model):
     message = models.CharField(verbose_name="Message", max_length=200)
+    token = models.CharField(verbose_name="Token", max_length=200, blank=True, null=True)
     def __str__(self) -> str:
         return super().__str__()
 
