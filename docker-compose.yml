@@ -28,7 +28,16 @@ services:
          - ./the_DB:/data/db
       ports:
          - "5433:5432"
-      
+   
+   bot:
+      build: .
+      restart: always
+      depends_on:
+         - postgres
+      networks:
+         - postgresnetwork
+      command:
+         - python ./telo/src/main.py
 networks:
   postgresnetwork:
     driver: bridge
